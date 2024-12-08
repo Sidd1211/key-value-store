@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  node1:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ADDRESSES: http://node1:3000,http://node2:3000
+      ZOOKEEPER_CONNECT: localhost:2181
+
+  node2:
+    build: .
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ADDRESSES: http://node1:3000,http://node2:3000
+      ZOOKEEPER_CONNECT: localhost:2181
+  
+   node3:
+    build: .
+    ports:
+      - "3002:3000"
+    environment:
+      NODE_ADDRESSES: http://node1:3000,http://node2:3000
+      ZOOKEEPER_CONNECT: localhost:2181
+  
+  zookeeper:
+    image: zookeeper:latest
+    ports:
+      - "2181:2181"
