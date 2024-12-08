@@ -23,7 +23,7 @@ This project implements a reliable and efficient key-value store. It provides a 
 1. Clone this repository:
 
 ```bash
-git clone [invalid URL removed]
+git clone https://github.com/Sidd1211/key-value-store.git
 Use code with caution.
 
 Navigate to the project directory:
