@@ -1,8 +1,8 @@
-const express = require('express');
-const kvRouter = require('./kv');
+import express from 'express';
+import kvRouter from './kv.js';
 
 const router = express.Router();
 
 router.use('/kv', kvRouter);
 
-module.exports = router;
+export default router;

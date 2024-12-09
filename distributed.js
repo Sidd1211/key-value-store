@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const config = {
   // using static node replications to replicate else we can implement this by Distributed Functionality through Zookeeper
@@ -9,7 +9,7 @@ const config = {
   ]
 };
 
-async function replicateData(key, value, operation = 'set') {
+export async function replicateData(key, value, operation = 'set') {
   const replicationPromises = config.nodes.map(async (node) => {
     try {
       const url = `${node.address}/api/kv`;
@@ -31,9 +31,6 @@ async function replicateData(key, value, operation = 'set') {
   console.log('Replication process completed.');
 }
 
-module.exports = {
-  replicateData,
-};
 
 // const ZooKeeper = require('node-zookeeper-client');
 // const axios = require('axios');

@@ -1,8 +1,8 @@
-const express = require('express');
-const Redis = require('ioredis');
-const routes = require('./routes');
-const config = require('./config');
-const { replicateData } = require('./distributed');
+import express from 'express';
+import Redis from 'ioredis';
+import routes from './routes/kv.js';
+import {config} from './config.js';
+import { replicateData } from './distributed.js';
 
 const app = express();
 const redis = new Redis(config.redis);
@@ -17,8 +17,10 @@ app.use('/api', routes);
 app.use(express.json()); // Parse incoming JSON requests
 
 // Mount routes at the '/api' path
-app.use('/api', routes);
+// app.use('/api', router);
 
 app.listen(config.port, () => {
   console.log(`Server listening on port ${config.port}`);
 });
+
+export default app;

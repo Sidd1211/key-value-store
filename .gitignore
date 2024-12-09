@@ -1,0 +1,30 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+
+# Temporary files
+tmp/
+temp/
+
+# Lock files
+package-lock.json
+yarn.lock
