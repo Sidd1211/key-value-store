@@ -50,16 +50,16 @@ With Persistence (Optional):
 Additional Configuration: Refer to implementation-specific documentation for configuring data persistence (e.g., setting a storage location).
 Starting the Application: Follow the same steps as outlined above.
 API Endpoints
-POST /api/kv
+POST /api/
 
 Creates a new key-value pair.
 Request body: { key: string, value: string }
 Response: { message: string } (message indicates success or error)
-GET /api/kv/:key
+GET /api/:key
 
 Retrieves the value associated with the specified key.
 Response: { value: string } (or error message if key not found)
-DELETE /api/kv/:key
+DELETE /api/:key
 
 Deletes the key-value pair associated with the specified key.
 Response: { message: string } (message indicates success or error)
