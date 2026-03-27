@@ -1,0 +1,36 @@
+services:
+  node1:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - PORT=3000
+      - NODE_ID=node1
+      - SELF_URL=http://node1:3000
+      - NODES=http://node1:3000,http://node2:3000,http://node3:3000
+
+  node2:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3002:3000"
+    environment:
+      - PORT=3000
+      - NODE_ID=node2
+      - SELF_URL=http://node2:3000
+      - NODES=http://node1:3000,http://node2:3000,http://node3:3000
+
+  node3:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3003:3000"
+    environment:
+      - PORT=3000
+      - NODE_ID=node3
+      - SELF_URL=http://node3:3000
+      - NODES=http://node1:3000,http://node2:3000,http://node3:3000
